@@ -4,13 +4,13 @@ A customisable autocompleter for inputs. It allows multiple data source and mult
 
 Simple | Customized | Multi
 ------------ | ------------- | -------------
-![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/simple.png) | ![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/tweetlike.png) | ![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/demo.gif)
+![](https://raw.githubusercontent.com/jnoleau/react-textcompleter/master/readme/simple.png) | ![](https://raw.githubusercontent.com/jnoleau/react-textcompleter/master/readme/tweetlike.png) | ![](https://raw.githubusercontent.com/jnoleau/react-textcompleter/master/readme/demo.gif)
 
 ## Usage
 
 Install it `npm install --save react-textcompleter`
 
-```jsx
+```javascript
 import {TextCompleter, TokenSource} from 'react-textcompleter';
 
 const following = [/* data */];
@@ -31,7 +31,7 @@ Clone this repository, run `npm install` then `npm run dev` and visit [http://lo
 
 This is the owner of TokenSource(s) containing the textarea.
 
-```jsx
+```javascript
 <TextCompleter
  // optionals
  wordSeparator=" " >
@@ -45,7 +45,7 @@ This is the owner of TokenSource(s) containing the textarea.
 
 You give a token (a string) & data, when the user writes this token, the autocompletion uses the corresponding TokenSource is triggered.
 
-```jsx
+```javascript
 <TokenSource
   token="@"
   data={ [] }
@@ -77,7 +77,7 @@ With this form , you can customize the matcher & return complex object. If objec
 
 Examples :
 
-```jsx
+```javascript
 
 // I want to customize the matcher to return string "starting with" the query only
 const data = [ .. ];
