@@ -1,12 +1,12 @@
 {
   "name": "react-textcompleter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React multi-autocompleter for text inputs",
   "main": "build/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base examples/ --port 3000 --hot --inline",
+    "dev": "webpack-dev-server --content-base examples/ --port 3000 --hot --inline --progress",
     "lint": "node_modules/eslint/bin/eslint.js src/*",
-    "build": "babel -d build/ src/",
+    "build": "babel -d ./build ./src",
     "prepublish": "npm run build"
   },
   "repository": {

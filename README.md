@@ -21,6 +21,12 @@ const following = [/* data */];
 </TextCompleter>
 ```
 
+## Demo
+
+Clone this repository, run `npm install` then `npm run dev` and visit http://localhost:3000
+
+## API
+
 #### TextCompleter
 
 This is the owner of TokenSource(s) containing the textarea.

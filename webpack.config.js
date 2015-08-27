@@ -26,7 +26,8 @@ module.exports = {
   resolve: {
     alias: {
       root: require('path').resolve('.')
-    }
+    },
+    extensions: ['', '.js', '.jsx']
   },
   devtool: 'eval'
 };

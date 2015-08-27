@@ -1,5 +1,5 @@
-import TextCompleter from './textcompleter.jsx';
-import TokenSource from './tokensource.jsx';
+import TextCompleter from './textcompleter';
+import TokenSource from './tokensource';
 
 module.exports = {
   TextCompleter,
