@@ -1,6 +1,10 @@
 # react-textcompleter
 
-A customisable autocompleter for inputs. It allows multiple data source and multi-words completion. See the example below available in examples/
+A customisable autocompleter for inputs. It allows multiple data source and multi-words completion. See the examples below available in examples/
+
+Simple | Twetbox | Multi
+------------ | ------------- | -------------
+![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/simple.png) | ![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/tweetlike.png) | ![](https://github.com/jnoleau/react-textcompleter/blob/master/readme/demo.gif)
 
 ## Usage
 
