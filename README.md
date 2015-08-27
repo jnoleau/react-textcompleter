@@ -23,7 +23,7 @@ const following = [/* data */];
 
 ## Demo
 
-Clone this repository, run `npm install` then `npm run dev` and visit http://localhost:3000
+Clone this repository, run `npm install` then `npm run dev` and visit [http://localhost:3000](http://localhost:3000)
 
 ## API
 
@@ -67,11 +67,11 @@ You give a token (a string) & data, when the user writes this token, the autocom
 
 * **data** The data used for suggestions
 
-`:array<string>  ['#javascript', '#cofee', .. ]`
+----- `:array<string>  ['#javascript', '#cofee', .. ]`
 
 This is the simplest form, give an array of strings, the default matcher will be used to show suggestions. If you want to customize the matcher, use the next form
 
-`function(query:string) :array<object>`
+----- `function(query:string) :array<object>`
 
 With this form , you can customize the matcher & return complex object. If objects are not string you must define itemRender, itemValue & itemKey
 
@@ -95,6 +95,6 @@ function userIsMatching(user, query) {
 <TokenSource data={ (query) => twitterUsers.filter((user) => userIsMatching(user, query)) } .. />
 ```
 
-`function(query:string) :function callback(itemsMatching:array<object>)` for asynchronous suggestions
+----- `function(query:string) :function callback(itemsMatching:array<object>)` for asynchronous suggestions
 
 TODO doc
