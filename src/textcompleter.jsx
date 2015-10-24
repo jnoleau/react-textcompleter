@@ -8,7 +8,7 @@ class TextCompleter extends React.Component {
     this.sourceValues = [];
     this.state = {
       query: null,
-      value: '',
+      value: this.props.defaultValue,
       sourceActive: 0
     };
   }
@@ -129,6 +129,10 @@ class TextCompleter extends React.Component {
     this.setState({sourceActive});
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.value !== prevState.value) this.props.onChange(this.state.value);
+  }
+
   render() {
     const children = React.Children.map(
       this.props.children,
@@ -157,7 +161,9 @@ class TextCompleter extends React.Component {
 }
 
 TextCompleter.defaultProps = {
-  wordSeparator: ' '
+  wordSeparator: ' ',
+  onChange: (value) => {},
+  defaultValue: ''
 };
 
 export default TextCompleter ;
