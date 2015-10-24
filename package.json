@@ -1,6 +1,6 @@
 {
   "name": "react-textcompleter",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "React multi-autocompleter for text inputs",
   "main": "build/index.js",
   "scripts": {
