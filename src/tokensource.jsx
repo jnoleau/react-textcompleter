@@ -72,7 +72,16 @@ class TokenSource extends React.Component {
             className={liClass}
             onMouseEnter={this.props.onActiveChange.bind(this, i)}
             onClick={this.props.onSelect.bind(this)} >
-            {this.props.itemRender(e, this.getQuery(this.props))}
+            {
+              (this.props.children) ?
+
+              React.cloneElement(this.props.children, {
+                item: e,
+                query: this.getQuery(this.props)
+              })
+
+              : this.props.itemRender(e, this.getQuery(this.props))
+            }
           </li>
         );
       })

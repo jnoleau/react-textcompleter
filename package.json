@@ -1,6 +1,6 @@
 {
   "name": "react-textcompleter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "React multi-autocompleter for text inputs",
   "main": "build/index.js",
   "scripts": {
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/jnoleau/react-textcompleter",
   "peerDependencies": {
-    "react": "^0.13.3"
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   },
   "devDependencies": {
     "babel": "^5.8.21",
@@ -35,8 +36,12 @@
     "css-loader": "^0.16.0",
     "eslint": "^1.2.1",
     "eslint-plugin-react": "^3.2.3",
+    "material-ui": "^0.13.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
     "react-highlighter": "^0.2.2",
     "react-hot-loader": "^1.2.8",
+    "react-tap-event-plugin": "^0.2.1",
     "style-loader": "^0.12.3",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"

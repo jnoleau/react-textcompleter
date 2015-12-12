@@ -4,8 +4,8 @@ import {TextCompleter, TokenSource} from 'root/src';
 
 class Simple extends React.Component {
 
-  onChange(value) {
-    console.log('change', value);
+  onChange(e) {
+    console.log('change', e.target.value);
   }
 
   render() {

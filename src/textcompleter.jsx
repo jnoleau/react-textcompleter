@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 
 class TextCompleter extends React.Component {
   constructor(props) {
@@ -13,15 +14,20 @@ class TextCompleter extends React.Component {
     };
   }
 
+  getInputNode() {
+    return ReactDom.findDOMNode(
+      this.refs.input.getInputNode ? this.refs.input.getInputNode() : this.refs.input);
+  }
+
   getQueryPos(value) {
-    const cursorPos = React.findDOMNode(this.refs.input).selectionStart;
+    const cursorPos = this.getInputNode().selectionStart;
 
     // array position of the current lookup-query
     return value.substr(0, cursorPos).split(this.props.wordSeparator).length - 1;
   }
 
   updateQuery(value) {
-    const cursorPos = React.findDOMNode(this.refs.input).selectionStart;
+    const cursorPos = this.getInputNode().selectionStart;
     const words = value.split(this.props.wordSeparator);
     const queryPos = this.getQueryPos(value);
 
@@ -37,7 +43,7 @@ class TextCompleter extends React.Component {
   }
 
   selectItem() {
-    const node = React.findDOMNode(this.refs.input);
+    const node = this.getInputNode();
     const words = this.state.value.split(this.props.wordSeparator);
     const queryPos = this.getQueryPos(this.state.value);
     words[queryPos] = this.sourceValue;
@@ -54,17 +60,22 @@ class TextCompleter extends React.Component {
       const newPos = words.slice(0, queryPos + 1)
         .join(this.props.wordSeparator).length + 1;
       node.selectionStart = node.selectionEnd = newPos;
+
+      // onChange
+      node.dispatchEvent(new Event('input', { bubbles: true }));
     });
 
     node.focus();
   }
 
   onChange(e) {
-    const value = event.target.value;
+    const value = e.target.value;
     this.updateQuery(value);
     this.setState({
       value
     });
+
+    if (this.props.onChange) this.props.onChange(e);
   }
 
   onKeyUp(e) {
@@ -129,9 +140,9 @@ class TextCompleter extends React.Component {
     this.setState({sourceActive});
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.value !== prevState.value) this.props.onChange(this.state.value);
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.value !== prevState.value) this.props.onChange(this.state.value);
+  // }
 
   render() {
     const children = React.Children.map(
@@ -145,15 +156,17 @@ class TextCompleter extends React.Component {
       })
     );
 
+    const input = (this.props.input !== null) ? this.props.input : <textarea />;
+
     return (
       <div>
-        <textarea
-          onKeyUp={this.onKeyUp.bind(this)}
-          onKeyDown={this.onKeyDown.bind(this)}
-          onChange={this.onChange.bind(this)}
-          value={this.state.value}
-          ref="input"
-        />
+        {React.cloneElement(input, {
+          onKeyUp: this.onKeyUp.bind(this),
+          onKeyDown: this.onKeyDown.bind(this),
+          onChange: this.onChange.bind(this),
+          value: this.state.value,
+          ref: 'input'
+        })}
         {children}
       </div>
     );
@@ -163,7 +176,8 @@ class TextCompleter extends React.Component {
 TextCompleter.defaultProps = {
   wordSeparator: ' ',
   onChange: (value) => {},
-  defaultValue: ''
+  defaultValue: '',
+  input: null
 };
 
 export default TextCompleter ;

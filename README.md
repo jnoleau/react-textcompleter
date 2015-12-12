@@ -1,6 +1,10 @@
 # react-textcompleter
 
-A customisable autocompleter for inputs. It allows multiple data source and multi-words completion. See the examples below available in examples/
+A customisable autocompleter for custom inputs.
+It allows multiple data source and multi-words completion.
+It allows classical text input or totally custom input (for example material-ui/lib/text-field )
+
+See the examples below available in examples/
 
 Simple | Customized | Multi
 ------------ | ------------- | -------------
@@ -25,7 +29,7 @@ const following = [/* data */];
 
 Clone this repository, run `npm install` then `npm run dev` and visit [http://localhost:3000](http://localhost:3000)
 
-## API
+## API (not complete, see examples/ folder)
 
 #### TextCompleter
 
@@ -34,7 +38,8 @@ This is the owner of TokenSource(s) containing the textarea.
 ```javascript
 <TextCompleter
  // optionals
- wordSeparator=" " >
+ wordSeparator=" "
+ input={<textarea />} >
    { /* .. sources ..*/ }
 </TextCompleter>
 ```
