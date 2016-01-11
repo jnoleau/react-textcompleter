@@ -70,8 +70,8 @@ class TokenSource extends React.Component {
           <li
             key={this.props.itemKey(e)}
             className={liClass}
-            onMouseEnter={this.props.onActiveChange.bind(this, i)}
-            onClick={this.props.onSelect.bind(this)} >
+            onMouseEnter={this.props.onActiveChange.bind(null, i)}
+            onClick={this.props.onSelect} >
             {
               (this.props.children) ?
 

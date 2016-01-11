@@ -152,7 +152,11 @@ class TextCompleter extends React.Component {
         itemActive: this.state.sourceActive,
         onValueChange: this.onSourceChange.bind(this, i),
         onActiveChange: this.changeSourceActive.bind(this),
-        onSelect: this.selectItem.bind(this)
+        onSelect: (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.selectItem();
+        }
       })
     );
 
